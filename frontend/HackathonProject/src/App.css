@@ -47,7 +47,7 @@
   position: fixed;
   top: 10vh; /* start below the header */
   right: 0;
-  bottom: 0;
+  bottom: 5vh; /* end above the footer */
   left: 0;
   display: grid;
   grid-template-columns: 20% 60% 20%;
