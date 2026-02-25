@@ -1,7 +1,10 @@
 import './App.css'
-
+import './header.tsx'
+import Header from './header.tsx'
 function App() {
   return (
+    <>
+    <Header />
     <div className="app-container">
       <aside className="left-frame">
         Left Frame (20% width, full height)
@@ -19,6 +22,7 @@ function App() {
         Top Right Frame (20% width, 50% height)
       </aside>
     </div>
+    </>
   )
 }
 

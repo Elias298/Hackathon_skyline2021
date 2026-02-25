@@ -41,10 +41,14 @@
   color: #888;
 }
 
+
 /* Layout for App frames */
 .app-container {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  top: 10vh; /* start below the header */
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: 50% 50%;
@@ -62,6 +66,9 @@
   padding: 1rem;
   box-sizing: border-box;
   overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottom-right-frame {
@@ -74,6 +81,9 @@
   justify-content: center;
   padding: 1rem;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top-center-frame {
@@ -97,4 +107,7 @@
   justify-content: center;
   padding: 1rem;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
