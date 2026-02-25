@@ -9,6 +9,7 @@ from utils.db_wrapper import (
     get_users_collection,
     get_responses_collection,
     get_survey_collection,
+    search_users,
 )
 
 logger = logging.getLogger(__name__)
@@ -39,6 +40,23 @@ async def get_dashboard_summary() -> dict[str, Any]:
         }
     except Exception as e:
         logger.error(f"Error getting dashboard summary: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── User search ────────────────────────────────────────────────
+@router.get("/users/search")
+async def search_users_endpoint(
+    q: str = Query("", description="Search by phone, name, or email"),
+    limit: int = Query(20, ge=1, le=100, description="Max results"),
+) -> dict[str, Any]:
+    """Search users by phone number, name, or email."""
+    if not q or len(q.strip()) < 2:
+        return {"success": True, "data": [], "message": "Query too short (min 2 chars)"}
+    try:
+        results = await search_users(q.strip(), limit=limit)
+        return {"success": True, "data": results, "total": len(results)}
+    except Exception as e:
+        logger.error(f"Error searching users: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

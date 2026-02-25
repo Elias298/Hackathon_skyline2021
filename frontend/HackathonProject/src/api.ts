@@ -85,6 +85,30 @@ export interface ResponsesPerSurveyData {
   data: ResponsesPerSurveyItem[];
 }
 
+/* ── User search ──────────────────────────────────────────────── */
+
+export interface UserResult {
+  _id: string;
+  phone: string;
+  name: string[];
+  email: string[];
+  geo_city: string[];
+  geo_country: string[];
+  geo_region: string[];
+  ip_address: string[];
+  survey_id: string[];
+  user_agent: string[];
+  utm_campaign: string[];
+  utm_source: string[];
+}
+
+export interface UserSearchData {
+  success: boolean;
+  data: UserResult[];
+  total: number;
+  message?: string;
+}
+
 /* ── Fetch helpers ─────────────────────────────────────────────── */
 
 export const fetchSummary = () => get<SummaryData>("/api/analytics/summary");
@@ -124,3 +148,6 @@ export const fetchSurveysList = () =>
 
 export const fetchResponsesPerSurvey = () =>
   get<ResponsesPerSurveyData>("/api/analytics/responses/per-survey");
+
+export const searchUsers = (query: string, limit = 20) =>
+  get<UserSearchData>("/api/analytics/users/search", { q: query, limit: String(limit) });

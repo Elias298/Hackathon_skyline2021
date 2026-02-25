@@ -33,6 +33,7 @@ import ChartCard from "./ChartCard";
 import LebanonMap from "./LebanonMap";
 import FilterBar, { FilterSelect } from "./FilterBar";
 import { Loader, ErrorBox } from "./StatusOverlay";
+import UserSearch from "./UserSearch";
 
 import "./Dashboard.css";
 
@@ -161,6 +162,9 @@ export default function Dashboard() {
           ]}
         />
       ) : null}
+
+      {/* ── User Search ─────────────────────────────────────────── */}
+      <UserSearch />
 
       {/* ── Filters ─────────────────────────────────────────────── */}
       <FilterBar>
