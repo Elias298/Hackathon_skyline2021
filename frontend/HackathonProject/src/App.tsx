@@ -1,7 +1,7 @@
 import './App.css'
 import './header.tsx'
 import Header from './header.tsx'
-
+import Footer from './footer.tsx'
 function App() {
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
         Top Right Frame (20% width, 50% height)
       </aside>
     </div>
+    <Footer />
     </>
   )
 }
