@@ -5,7 +5,7 @@ Database update utilities for syncing data from API to database.
 import logging
 import httpx
 from typing import Any, Optional
-from db_wrapper import (
+from .db_wrapper import (
     get_survey_collection,
     create_survey,
     get_responses_collection,

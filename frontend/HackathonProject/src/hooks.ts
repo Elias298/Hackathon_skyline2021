@@ -1,0 +1,29 @@
+import { useEffect, useState, useCallback } from "react";
+
+/**
+ * Generic async-data hook with loading / error state.
+ */
+export function useAsync<T>(
+  fetcher: () => Promise<T>,
+  deps: unknown[] = [],
+) {
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const load = useCallback(() => {
+    setLoading(true);
+    setError(null);
+    fetcher()
+      .then(setData)
+      .catch((e: Error) => setError(e.message))
+      .finally(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  return { data, loading, error, reload: load };
+}

@@ -1,0 +1,39 @@
+.chart-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(16, 24, 40, 0.06);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chart-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.chart-card-action {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.chart-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}

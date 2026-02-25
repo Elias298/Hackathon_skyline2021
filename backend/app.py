@@ -3,7 +3,6 @@ import asyncio
 import logging
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
-from frontend_endpoints import router as frontend_router
 from analytics_router import router as analytics_router
 from utils.db_update import sync_all_data
 
@@ -16,6 +15,7 @@ app = FastAPI()
 origins = [
     os.getenv("VITE_URL", "http://localhost:3000"),
     os.getenv("BACKEND_URL", "http://localhost:8000"),
+    "http://localhost:5173",  # Vite dev server default port
 ]
 
 app.add_middleware(
@@ -106,5 +106,4 @@ async def manual_sync():
         }
 
 
-app.include_router(frontend_router)
 app.include_router(analytics_router)
