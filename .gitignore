@@ -1,6 +1,5 @@
-app1.py
-test.yml
 __pycache__/
 .venv/
 .env
 node_modules/
+.vscode
